@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NasyaWeatherApp — Dashboard Cuaca</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- WRAPPER UNTUK MEMPERKECIL UKURAN UI -->
+  <div class="app-wrapper">
+
+    <div class="app">
+      <!-- SIDEBAR -->
+      <aside class="sidebar glass">
+        <div class="brand">
+          <h1>🌤 NasyaWeatherApp</h1>
+        </div>
+
+        <div class="search-block">
+          <label for="searchInput" class="label">Cari Kota</label>
+          <div class="search-row">
+            <input id="searchInput" placeholder="Ketik nama kota..." autocomplete="off" />
+            <button id="searchBtn" aria-label="Cari">🔍</button>
+          </div>
+          <ul id="suggestions" class="suggestions hidden" role="listbox"></ul>
+        </div>
+
+        <div class="favorites-block">
+          <h4>Kota Favorit</h4>
+          <ul id="favoriteList" class="favorite-list"></ul>
+        </div>
+
+        <div class="controls">
+          <div class="toggle-row">
+            <button id="unitBtn" class="pill">°C / °F</button>
+            <button id="speedBtn" class="pill">km/h ↔ mph</button>
+          </div>
+
+          <button id="themeBtn" class="btn-theme">🌙 Tema</button>
+        </div>
+
+        <p class="sidebar-note">Data: <strong>Tomorrow.io & Open-Meteo</strong></p>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main glass">
+        <!-- Top: Current + Details -->
+        <section class="top">
+          <section class="current-card glass">
+            <div class="current-header">
+              <div>
+                <h2 id="cityName">--</h2>
+                <p id="localTime" class="muted">--</p>
+              </div>
+              <div class="fav-action">
+                <button id="favToggle" class="fav-btn">⭐ Simpan</button>
+              </div>
+            </div>
+
+            <div class="current-body">
+              <div class="iconwrap">
+                <div id="currentIcon" class="icon">🌤</div>
+              </div>
+              <div class="tempwrap">
+                <div id="temperature" class="temp">--°</div>
+                <div id="condition" class="condition muted">--</div>
+                <button id="unitToggleSmall" class="small-pill">°C / °F</button>
+              </div>
+            </div>
+
+            <div class="current-stats">
+              <div class="stat"><div class="stat-label">Feels Like</div><div id="feelsLike" class="stat-value">--°</div></div>
+              <div class="stat"><div class="stat-label">Kelembaban</div><div id="humidity" class="stat-value">--%</div></div>
+              <div class="stat"><div class="stat-label">Angin</div><div id="wind" class="stat-value">--</div></div>
+              <div class="stat"><div class="stat-label">Jarak Pandang</div><div id="visibility" class="stat-value">-- km</div></div>
+            </div>
+
+            <p id="statusMsg" class="status muted"></p>
+          </section>
+
+          <section class="detail-card glass">
+            <h3>Detail Lainnya</h3>
+            <div class="detail-list">
+              <div class="detail-item"><div>Indeks UV</div><div id="uvIndex">--</div></div>
+              <div class="detail-item"><div>Tekanan</div><div id="pressure">-- hPa</div></div>
+              <div class="detail-item"><div>Prob. Hujan</div><div id="precipProb">--%</</div></div>
+              <div class="detail-item"><div>Visibilitas (m)</div><div id="visibilityMeters">--</div></div>
+            </div>
+          </section>
+        </section>
+
+        <!-- Forecast -->
+        <section class="forecast-block">
+          <h3>Prakiraan 5 Hari</h3>
+          <div id="forecastList" class="forecast-list"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

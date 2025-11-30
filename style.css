@@ -1,0 +1,146 @@
+:root{
+  --bg: #ffd5e5;
+  --primary: #ff4f9a;
+  --card: rgba(255,255,255,0.25);
+  --text: #3b1a25;
+  --muted: rgba(59,26,37,0.7);
+  --glass-blur: 10px;
+  --shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* dark pink mode */
+.dark {
+  --bg: #2a0730;
+  --primary: #ff7db8;
+  --card: rgba(255, 182, 193, 0.08);
+  --text: #fff;
+  --muted: rgba(255,255,255,0.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg), #f0cfe0 60%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Layout */
+.app{display:flex;min-height:100vh;gap:18px;padding:18px}
+.sidebar{
+  width:260px;padding:18px;border-radius:14px;background:var(--card);backdrop-filter: blur(var(--glass-blur));box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;
+}
+.main{
+  flex:1;padding:18px;border-radius:14px;background:transparent;display:flex;flex-direction:column;gap:18px;overflow:auto;
+}
+
+/* Glass utility */
+.glass{background:var(--card);backdrop-filter: blur(var(--glass-blur));border-radius:14px;box-shadow:var(--shadow)}
+
+/* BRAND */
+.brand h1{font-size:18px;margin:0;color:var(--primary)}
+
+/* SEARCH */
+.search-block .label{font-size:13px;margin-bottom:6px;color:var(--muted)}
+.search-row{display:flex;gap:8px}
+#searchInput{
+  flex:1;padding:10px 12px;border-radius:10px;border:none;outline:none;font-size:14px;background:rgba(255,255,255,0.9);
+}
+#searchBtn{background:var(--primary);color:white;padding:10px 12px;border-radius:10px;border:none;cursor:pointer}
+
+/* suggestions */
+.suggestions{list-style:none;margin:8px 0;padding:6px;border-radius:10px;max-height:200px;overflow:auto;box-shadow:0 6px 20px rgba(0,0,0,0.08)}
+.suggestions li{padding:8px;border-radius:8px;cursor:pointer}
+.suggestions li:hover{background:var(--primary);color:#fff}
+
+/* FAVORITES */
+.favorite-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.favorite-list li{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:10px;background:rgba(255,255,255,0.06);cursor:pointer}
+.favorite-list li .del{background:transparent;border:none;color:var(--muted);cursor:pointer;padding:6px}
+.favorite-list li:hover{background:var(--primary);color:#fff}
+
+/* CONTROLS */
+.controls{margin-top:auto;display:flex;flex-direction:column;gap:10px}
+.pill{background:transparent;border:1px solid rgba(0,0,0,0.08);padding:8px 10px;border-radius:999px;cursor:pointer}
+.btn-theme{background:var(--primary);color:#fff;padding:10px;border-radius:10px;border:none;cursor:pointer}
+
+/* TOP SECTION */
+.top{display:flex;gap:18px;}
+.current-card{flex:3;padding:16px;display:flex;flex-direction:column;gap:12px}
+.detail-card{flex:1;padding:16px}
+
+/* current header */
+.current-header{display:flex;justify-content:space-between;align-items:center}
+.current-header h2{margin:0;font-size:20px}
+.muted{color:var(--muted);font-size:13px}
+
+/* body */
+.current-body{display:flex;align-items:center;gap:18px}
+.iconwrap .icon{font-size:78px}
+.tempwrap .temp{font-size:54px;font-weight:700}
+.small-pill{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:6px;border-radius:10px;cursor:pointer}
+
+/* stats grid */
+.current-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding-top:6px}
+.stat{background:rgba(255,255,255,0.03);padding:10px;border-radius:10px}
+.stat-label{font-size:13px;color:var(--muted)}
+.stat-value{font-weight:600}
+
+/* detail list */
+.detail-list{display:flex;flex-direction:column;gap:10px}
+.detail-item{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:10px;background:rgba(255,255,255,0.03)}
+
+/* forecast */
+.forecast-block h3{margin:0 0 8px 0}
+.forecast-list{display:flex;gap:12px;overflow:auto;padding-bottom:8px}
+.forecast-item{min-width:120px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.04);text-align:center}
+.forecast-item h4{margin:6px 0;font-size:14px}
+.forecast-item p{margin:6px 0;color:var(--muted)}
+
+/* status */
+.status{font-size:13px;color:var(--muted)}
+
+/* responsive */
+@media (max-width:900px){
+  .app{flex-direction:column;padding:12px}
+  .sidebar{width:100%}
+  .top{flex-direction:column}
+  .forecast-list{flex-wrap:nowrap}
+}
+
+/* === Frame Layout Fix === */
+.app-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    height: 100%;
+}
+
+.sidebar {
+    width: 300px;
+    min-width: 260px;
+}
+
+.main-content {
+    flex: 1;
+    max-width: 850px;
+}
+
+/* Card biar tidak terlalu besar */
+.glass-card,
+.details-card {
+    padding: 18px;
+}
+
+/* Lebar sidebar responsive */
+@media (max-width: 960px) {
+    .app-wrapper {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+    }
+}
